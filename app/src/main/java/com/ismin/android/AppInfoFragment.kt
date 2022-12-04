@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-private const val APP_INFO = "Thank you for using our app, here's what it can do: ... nothing."
+private const val APP_INFO = "Thank you for using our app, here's what it can do: ... nothing. BUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUT I can assure you it will at some point. Hopefully. Eventually. Is that enough text?"
 
 class AppInfoFragment : Fragment() {
 
@@ -34,7 +34,7 @@ class AppInfoFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(locations: ShootingLocation) =
+        fun newInstance() =
             AppInfoFragment().apply {
                 arguments = Bundle().apply {
 

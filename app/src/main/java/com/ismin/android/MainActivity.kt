@@ -3,10 +3,8 @@ package com.ismin.android
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
-import kotlin.collections.ArrayList
 
 /*import retrofit2.Call
 import retrofit2.Callback
@@ -47,14 +45,14 @@ class MainActivity : AppCompatActivity() {
                 }
             })
   */
-    // for tests
-    val shoot = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max",
-        "Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585))
+        // for tests
+        val shoot = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585))
         locations.addShootingLocation(shoot)
+        displayListFragment()
     }
 
     private fun displayListFragment() {
-        val bookListFragment = ListFragment.newInstance(locations.getAllShootingLocations() as ArrayList<ShootingLocation>)
+        val bookListFragment = ListFragment.newInstance(locations.getAllShootingLocations())
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, bookListFragment)
             .commit()
@@ -62,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun displayAppInfoFragment() {
         val id = "2019-1719"
-        val appInfoFragment = AppInfoFragment.newInstance(locations.getShootingLocationById(id))
+        val appInfoFragment = AppInfoFragment.newInstance()
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, appInfoFragment)
             .commit()
@@ -74,7 +72,6 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.a_main_frame_layout, mapFragment)
             .commit()
         btnCreateBook.hide()
-
  */
     }
 

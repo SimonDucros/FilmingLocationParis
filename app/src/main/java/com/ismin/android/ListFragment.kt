@@ -42,10 +42,10 @@ class ListFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(books: ArrayList<ShootingLocation>) =
+        fun newInstance(locations: ArrayList<ShootingLocation>) =
             ListFragment().apply {
                 arguments = Bundle().apply {
-                    putSerializable(LOCATION, books)
+                    putSerializable(LOCATION, locations)
                 }
             }
     }

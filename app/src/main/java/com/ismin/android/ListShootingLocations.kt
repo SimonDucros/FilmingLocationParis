@@ -14,8 +14,8 @@ class ListShootingLocations{
         return locations[id] ?: throw RuntimeException("No book with title: $id");
     }
 
-    fun getAllShootingLocations(): List<ShootingLocation> {
-        return locations.values.sortedBy { it.title };
+    fun getAllShootingLocations(): ArrayList<ShootingLocation> {
+        return ArrayList(locations.values.sortedBy { it.title });
     }
 
     fun getTotalNumberOfShootingLocations(): Int {
