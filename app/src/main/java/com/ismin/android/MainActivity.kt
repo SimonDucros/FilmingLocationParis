@@ -18,19 +18,19 @@ const val SERVER_BASE_URL = "https://shootingLocations-gme.cleverapps.io"
 class MainActivity : AppCompatActivity() {
 
     private val locations = ShootingLocation()
-    private val btnCreateBook: FloatingActionButton by lazy { findViewById(R.id.a_main_btn_create_book) }
+    private val btnRefresh: FloatingActionButton by lazy { findViewById(R.id.a_main_btn_refresh) }
 
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(SERVER_BASE_URL)
         .build()
-    val bookService = retrofit.create(ShootingLocationService::class.java)
+    val shootingLocationService = retrofit.create(ShootingLocationService::class.java)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        bookService.getAllBooks()
+        shootingLocationService.getAllBooks()
             .enqueue(object : Callback<List<ShootingLocation>> {
                 override fun onResponse(
                     call: Call<List<ShootingLocation>>,
@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
                 }
             })
 
-        btnCreateBook.setOnClickListener {
-            displayCreateBookFragment()
+        btnRefresh.setOnClickListener {
+            displayListFragment()
         }
     }
 
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBookCreated(shootLocation: ShootingLocation) {
-        bookService.createBook(shootLocation)
+        shootingLocationService.createBook(shootLocation)
             .enqueue(object : Callback<ShootingLocation> {
                 override fun onResponse(call: Call<ShootingLocation>,response: Response<ShootingLocation>) {
                     response.body()?.let{locations.addBook(it)}
