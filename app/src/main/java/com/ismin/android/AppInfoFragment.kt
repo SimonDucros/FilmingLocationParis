@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-private const val APP_INFO = "Thank you for using our app, here's what it can do: ... nothing. BUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUT I can assure you it will at some point. Hopefully. Eventually. Is that enough text?"
+private const val URL = "This application makes use of the data collected on the following link:\nhttps://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu"
+private const val EXPLANATIONS = "This application was developed for a the class 'Android development' in the third year program of the School of Mines de Saint-Etienne in the study cycle ISMIN.\nIt's purpose is to fetch data from the previously given url, display it and be able to add items to favourites.\nIt was developped by Simon DUCROS and Delphine GESSE."
+private const val LICENCE = "We are using the following libraries: \n- retrofit\n- ?????"
 
 class AppInfoFragment : Fragment() {
 
@@ -25,9 +27,9 @@ class AppInfoFragment : Fragment() {
         // Inflate the layout for this fragment
         val rootView = inflater.inflate(R.layout.fragment_app_info, container, false)
 
-        var infoText = rootView.findViewById<TextView>(R.id.f_app_info_text)
-
-        infoText.text = APP_INFO
+        rootView.findViewById<TextView>(R.id.f_app_info_url).text = URL
+        rootView.findViewById<TextView>(R.id.f_app_info_explanations).text = EXPLANATIONS
+        rootView.findViewById<TextView>(R.id.f_app_info_licence).text = LICENCE
 
         return rootView
     }
