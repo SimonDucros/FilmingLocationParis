@@ -1,10 +1,15 @@
 package com.ismin.android
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
+
 
 /*import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +25,9 @@ const val SERVER_BASE_URL = "https://shootingLocations-gme.cleverapps.io"
 class MainActivity : AppCompatActivity() {
 
     private val locations = ListShootingLocations()
-/*
+    private lateinit var locationAdapter: LocationAdapter
+
+    /*
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(SERVER_BASE_URL)
@@ -46,16 +53,32 @@ class MainActivity : AppCompatActivity() {
             })
   */
         // for tests
-        val shoot = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585))
+        val shoot = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
         locations.addShootingLocation(shoot)
         displayListFragment()
     }
 
+    fun startDetailActivity(shootingLocation: ShootingLocation) {
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra("location", shootingLocation)
+        startForResult.launch(intent)
+    }
+
+    private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
+            locations.updateFavourites(changedLocation.locationId, changedLocation.favourite)
+            locationAdapter.refreshData(locations.getAllShootingLocations())
+            locationAdapter.notifyDataSetChanged()
+        }
+    }
+
     private fun displayListFragment() {
-        val bookListFragment = ListFragment.newInstance(locations.getAllShootingLocations())
+        val listFragment = ListFragment.newInstance(locations.getAllShootingLocations())
         supportFragmentManager.beginTransaction()
-            .replace(R.id.a_main_frame_layout, bookListFragment)
+            .replace(R.id.a_main_frame_layout, listFragment)
             .commit()
+        locationAdapter = LocationAdapter(locations.getAllShootingLocations(),listFragment)
     }
 
     private fun displayAppInfoFragment() {
@@ -71,7 +94,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, mapFragment)
             .commit()
-        btnCreateBook.hide()
  */
     }
 
@@ -116,7 +138,5 @@ class MainActivity : AppCompatActivity() {
                 }
             })
     }
-
      */
-
 }

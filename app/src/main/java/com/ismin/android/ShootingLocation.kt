@@ -11,6 +11,6 @@ data class ShootingLocation(val locationId: String,
                             val address: String,
                             val postalCode: String,
                             val geoLocation: DoubleArray,
-                      //      val favourite: Boolean
+                            var favourite: Boolean
                             ): java.io.Serializable
 

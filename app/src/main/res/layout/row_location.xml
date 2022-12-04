@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/row_location"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="16dp">
@@ -10,10 +11,11 @@
         android:id="@+id/r_location_txv_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/r_location_image"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -41,4 +43,13 @@
         android:text="TextView"
         app:layout_constraintStart_toStartOf="@+id/r_movie_txv_director"
         app:layout_constraintTop_toBottomOf="@+id/r_movie_txv_director" />
+
+    <ImageView
+        android:id="@+id/r_location_image"
+        android:layout_width="43dp"
+        android:layout_height="58dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

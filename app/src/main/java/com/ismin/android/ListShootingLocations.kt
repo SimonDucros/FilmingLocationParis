@@ -21,4 +21,8 @@ class ListShootingLocations{
     fun getTotalNumberOfShootingLocations(): Int {
         return locations.size;
     }
+
+    fun updateFavourites(id: String, fav: Boolean){
+        getShootingLocationById(id).favourite = fav
+    }
 }
