@@ -18,7 +18,7 @@ class LocationAdapter(private var locations: List<ShootingLocation>) : RecyclerV
         val place = locations[position]
         holder.movie.text = place.title
         holder.director.text = place.director
-        holder.date.text = place.shootingDate.toString()
+        holder.date.text = place.date.toString()
         holder.address.text = place.address
     }
 
