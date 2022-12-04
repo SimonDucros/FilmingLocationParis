@@ -6,8 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 private const val APP_INFO = "Thank you for using our app, here's what it can do: ... nothing."
 
@@ -36,7 +34,7 @@ class AppInfoFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(books: ArrayList<ShootingLocation>) =
+        fun newInstance(locations: ShootingLocation) =
             AppInfoFragment().apply {
                 arguments = Bundle().apply {
 

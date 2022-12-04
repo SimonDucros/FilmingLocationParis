@@ -5,32 +5,35 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import retrofit2.Call
+import java.util.*
+import kotlin.collections.ArrayList
+
+/*import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+
+ */
 
 const val SERVER_BASE_URL = "https://shootingLocations-gme.cleverapps.io"
 
 
 class MainActivity : AppCompatActivity() {
 
-    private val locations = ShootingLocation()
-    private val btnRefresh: FloatingActionButton by lazy { findViewById(R.id.a_main_btn_refresh) }
-
+    private val locations = ListShootingLocations()
+/*
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(SERVER_BASE_URL)
         .build()
     val shootingLocationService = retrofit.create(ShootingLocationService::class.java)
-
+ */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        shootingLocationService.getAllBooks()
+ /*       shootingLocationService.getAllBooks()
             .enqueue(object : Callback<List<ShootingLocation>> {
                 override fun onResponse(
                     call: Call<List<ShootingLocation>>,
@@ -43,21 +46,23 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
                 }
             })
-
-        btnRefresh.setOnClickListener {
-            displayListFragment()
-        }
+  */
+    // for tests
+    val shoot = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max",
+        "Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585))
+        locations.addShootingLocation(shoot)
     }
 
     private fun displayListFragment() {
-        val bookListFragment = ListFragment.newInstance(locations.getAllLocations())
+        val bookListFragment = ListFragment.newInstance(locations.getAllShootingLocations() as ArrayList<ShootingLocation>)
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, bookListFragment)
             .commit()
     }
 
     private fun displayAppInfoFragment() {
-        val appInfoFragment = AppInfoFragment.newInstance()
+        val id = "2019-1719"
+        val appInfoFragment = AppInfoFragment.newInstance(locations.getShootingLocationById(id))
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, appInfoFragment)
             .commit()
@@ -101,6 +106,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /*
     override fun onBookCreated(shootLocation: ShootingLocation) {
         shootingLocationService.createBook(shootLocation)
             .enqueue(object : Callback<ShootingLocation> {
@@ -113,5 +119,7 @@ class MainActivity : AppCompatActivity() {
                 }
             })
     }
+
+     */
 
 }
