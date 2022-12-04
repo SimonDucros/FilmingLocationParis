@@ -23,11 +23,17 @@ class LocationAdapter(private var locations: List<ShootingLocation>, val homeFra
         holder.date.text = place.date.toString()
         holder.address.text = place.address
 
- /*       if(place.shootingType.equals("")){
-            holder.image = icon
+        if(place.shootingType.equals("Long métrage")){
+            holder.image = clap
+        } else if(place.shootingType.equals("Série TV")){
+            holder.image = tvSeries
+        } else if(place.shootingType.equals("Série Web")){
+            holder.image = computer
+        } else if(place.shootingType.equals("Téléfilm")){
+            holder.image = tv
         }
 
-  */
+
     }
 
     override fun getItemCount(): Int {
