@@ -1,7 +1,5 @@
 package com.ismin.android
 
-import android.R
-import android.icu.lang.UCharacter.GraphemeClusterBreak.V
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -29,13 +27,14 @@ class LocationAdapter(private var locations: List<ShootingLocation>, val homeFra
         if(place.shootingType.equals("Long métrage")){
             holder.image.setImageResource(R.drawable.clap)
         } else if(place.shootingType.equals("Série TV")){
-            holder.image.setImageResource(R.drawable.TVShow)
+            holder.image.setImageResource(R.drawable.tvshow)
         } else if(place.shootingType.equals("Série Web")){
             holder.image.setImageResource(R.drawable.computer)
         } else if(place.shootingType.equals("Téléfilm")){
             holder.image.setImageResource(R.drawable.tv)
         }
     }
+
 
     override fun getItemCount(): Int {
         return locations.size
