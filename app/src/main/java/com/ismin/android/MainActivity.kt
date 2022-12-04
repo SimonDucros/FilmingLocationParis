@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                     displayListFragment()
                 }
                 override fun onFailure(call: Call<List<ShootingLocation>>, t: Throwable) {
-                    Toast.makeText(applicationContext,"Cannot display books", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
                 }
             })
 
@@ -91,6 +91,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.menu_info -> {
                 displayAppInfoFragment()
+                true
+            }
+            R.id.menu_refresh -> {
+                displayListFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)

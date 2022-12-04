@@ -146,4 +146,17 @@
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_postalcode"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_address" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/a_detail_btn_backarrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        app:backgroundTint="#6200ED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_detail_text_postalcode"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
