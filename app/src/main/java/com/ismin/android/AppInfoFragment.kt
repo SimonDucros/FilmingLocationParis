@@ -1,0 +1,46 @@
+package com.ismin.android
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+
+private const val URL = "This application makes use of the data collected on the following link:\nhttps://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu"
+private const val EXPLANATIONS = "This application was developed for a the class 'Android development' in the third year program of the School of Mines de Saint-Etienne in the study cycle ISMIN.\nIt's purpose is to fetch data from the previously given url, display it and be able to add items to favourites.\nIt was developped by Simon DUCROS and Delphine GESSE."
+private const val LICENCE = "We are using the following libraries: \n- retrofit\n- ?????"
+
+class AppInfoFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val rootView = inflater.inflate(R.layout.fragment_app_info, container, false)
+
+        rootView.findViewById<TextView>(R.id.f_app_info_url).text = URL
+        rootView.findViewById<TextView>(R.id.f_app_info_explanations).text = EXPLANATIONS
+        rootView.findViewById<TextView>(R.id.f_app_info_licence).text = LICENCE
+
+        return rootView
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() =
+            AppInfoFragment().apply {
+                arguments = Bundle().apply {
+
+                }
+            }
+    }
+}

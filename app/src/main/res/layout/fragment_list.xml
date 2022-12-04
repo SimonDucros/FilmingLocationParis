@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ListFragment">
 
-    <FrameLayout
-        android:id="@+id/a_main_frame_layout"
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/f_list_rcv_locations"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
