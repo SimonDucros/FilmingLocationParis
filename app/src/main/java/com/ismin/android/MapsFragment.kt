@@ -27,6 +27,15 @@ class MapsFragment : Fragment() {
         val sydney = LatLng(-34.0, 151.0)
         googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Sydney"))
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        // display all locations on the maps
+        var geoData = LatLng(-34.0, 151.0)
+        for(location in listLocations.getAllShootingLocations()){
+            geoData = LatLng(location.geoLocation[0],location.geoLocation[1])
+            googleMap.addMarker(MarkerOptions().position(geoData).title(location.title))
+        }
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(geoData))
+
     }
 
     override fun onCreateView(
