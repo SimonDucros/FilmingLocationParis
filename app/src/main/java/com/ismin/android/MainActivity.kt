@@ -23,7 +23,7 @@ const val SERVER_BASE_URL = "https://shootingLocations-gme.cleverapps.io"
 
 class MainActivity : AppCompatActivity() {
 
-    private val locations = ListShootingLocations()
+    private var locations = ListShootingLocations()
     private lateinit var locationAdapter: LocationAdapter
 
     /*
@@ -52,8 +52,10 @@ class MainActivity : AppCompatActivity() {
             })
   */
         // for tests
-        val shoot = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot2 = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot = ShootingLocation("2019-1718", Date(2019), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
         locations.addShootingLocation(shoot)
+        locations.addShootingLocation(shoot2)
         displayListFragment()
     }
 
@@ -66,9 +68,10 @@ class MainActivity : AppCompatActivity() {
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
-            locations.updateFavourites(changedLocation.locationId, changedLocation.favourite)
+            locations = locations.updateFavourites(locations,changedLocation.locationId, changedLocation.favourite)
             locationAdapter.refreshData(locations.getAllShootingLocations())
             locationAdapter.notifyDataSetChanged()
+            displayListFragment()
         }
     }
 

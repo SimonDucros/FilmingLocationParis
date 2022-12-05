@@ -11,4 +11,5 @@ class LocationViewHolder(rootView: View): ViewHolder(rootView) {
     var date = rootView.findViewById<TextView>(R.id.r_location_txv_releasedate)
     var director = rootView.findViewById<TextView>(R.id.r_movie_txv_director)
     var image = rootView.findViewById<ImageView>(R.id.r_location_image)
+    var fav = rootView.findViewById<ImageView>(R.id.r_location_txv_favourite_status)
 }

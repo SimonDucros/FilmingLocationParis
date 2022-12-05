@@ -42,8 +42,24 @@ class DetailActivity : AppCompatActivity() {
             } else if(location.shootingType.equals("Téléfilm")){
                 findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tv)
             }
+            displayFavouriteStatus(location.favourite)
 
             findViewById<FloatingActionButton>(R.id.a_detail_btn_backarrow).setOnClickListener(this::returnToMain)
+            findViewById<ImageView>(R.id.a_detail_favourite_status).setOnClickListener { location = updateFavouriteStatus(location) }
+        }
+    }
+
+    private fun updateFavouriteStatus(location: ShootingLocation): ShootingLocation {
+        location.favourite = !location.favourite
+        displayFavouriteStatus(location.favourite)
+        return location
+    }
+
+    private fun displayFavouriteStatus(fav: Boolean){
+        if(fav){
+            findViewById<ImageView>(R.id.a_detail_favourite_status).setImageResource(R.drawable.ic_baseline_star_24)
+        } else {
+            findViewById<ImageView>(R.id.a_detail_favourite_status).setImageResource(R.drawable.ic_baseline_star_outline_24)
         }
     }
 

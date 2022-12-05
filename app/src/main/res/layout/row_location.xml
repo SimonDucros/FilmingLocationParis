@@ -52,4 +52,13 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <ImageView
+        android:id="@+id/r_location_txv_favourite_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/r_location_txv_releasedate"
+        app:layout_constraintTop_toBottomOf="@+id/r_location_txv_releasedate"
+        app:srcCompat="@drawable/ic_baseline_star_outline_24" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,7 +22,8 @@ class ListShootingLocations{
         return locations.size;
     }
 
-    fun updateFavourites(id: String, fav: Boolean){
-        getShootingLocationById(id).favourite = fav
+    fun updateFavourites(locations : ListShootingLocations,id: String, fav: Boolean): ListShootingLocations {
+        locations.getShootingLocationById(id).favourite = fav
+        return locations
     }
 }
