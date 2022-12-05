@@ -81,7 +81,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayAppInfoFragment() {
-        val id = "2019-1719"
         val appInfoFragment = AppInfoFragment.newInstance()
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, appInfoFragment)
@@ -89,11 +88,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun displayMapFragment() {
-/*        val mapFragment = MapFragment.newInstance()
+        val mapFragment = MapsFragment.newInstance(locations)
         supportFragmentManager.beginTransaction()
             .replace(R.id.a_main_frame_layout, mapFragment)
             .commit()
- */
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -12,32 +12,30 @@
         android:id="@+id/a_detail_movie"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_movie"
-        app:layout_constraintTop_toBottomOf="@+id/a_detail_image" />
+        app:layout_constraintTop_toTopOf="@+id/a_detail_text_movie" />
 
     <TextView
         android:id="@+id/a_detail_address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_address"
-        app:layout_constraintTop_toBottomOf="@+id/a_detail_type" />
+        app:layout_constraintTop_toTopOf="@+id/a_detail_text_address" />
 
     <TextView
         android:id="@+id/a_detail_text_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="Movie: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toStartOf="parent"
