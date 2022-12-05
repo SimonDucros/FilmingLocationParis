@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 private const val URL = "This application makes use of the data collected on the following link:\nhttps://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu"
-private const val EXPLANATIONS = "This application was developed for a the class 'Android development' in the third year program of the School of Mines de Saint-Etienne in the study cycle ISMIN.\nIt's purpose is to fetch data from the previously given url, display it and be able to add items to favourites.\nIt was developped by Simon DUCROS and Delphine GESSE."
-private const val LICENCE = "We are using the following libraries: \n- retrofit\n- ?????"
+private const val EXPLANATIONS = "This application was developed for a the class 'Android development' in the third year program of the School of Mines de Saint-Etienne in the study cycle ISMIN.\nIt's purpose is to fetch data from the previously given url, display it and be able to add items to favourites. The application is displaying information concerning shooting locations in Paris that were used for a set of movies. For each location displayed in 'LIST' (containing all locations) you can obtain more detailed information by simply clicking on the item. You can refresh the list by clicking on the icon in the menu bar (top right). To add a location to favourites click on the star in the top left corner of the detail window. Do the same to remove it from your favourites. You can view the locations on a map in the 'MAP' section. Information on the application is provided in this window called 'INFO'.\nIt was developped by Simon DUCROS and Delphine GESSE."
+private const val LICENCE = "We are using the following libraries: \n- etrofit - OKHttp\n- Volley\n- Gson"
 
 class AppInfoFragment : Fragment() {
 
