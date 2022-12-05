@@ -52,10 +52,12 @@ class MainActivity : AppCompatActivity() {
             })
   */
         // for tests
-        val shoot2 = ShootingLocation("2019-1719", Date(2019), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
-        val shoot = ShootingLocation("2019-1718", Date(2019), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot2 = ShootingLocation("2019-1719", Date(2019,1,1), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot = ShootingLocation("2019-1718", Date(2012,1,1), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot3 = ShootingLocation("2019-1720", Date(2022,1,1), "Série Web", "Hello","Pourriture","Moi","rue imaginaire","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
         locations.addShootingLocation(shoot)
         locations.addShootingLocation(shoot2)
+        locations.addShootingLocation(shoot3)
         displayListFragment()
     }
 

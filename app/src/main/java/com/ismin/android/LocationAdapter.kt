@@ -22,16 +22,16 @@ class LocationAdapter(private var locations: List<ShootingLocation>, val homeFra
         place = locations[position]
         holder.movie.text = place.title
         holder.director.text = place.director
-        holder.date.text = place.date.toString()
+        holder.date.text = place.date.year.toString()
         holder.address.text = place.address
 
         if(place.shootingType == "Long métrage"){
             holder.image.setImageResource(R.drawable.clap)
         } else if(place.shootingType == "Série TV"){
             holder.image.setImageResource(R.drawable.tvshow)
-        } else if(place.shootingType.equals("Série Web")){
+        } else if(place.shootingType == "Série Web"){
             holder.image.setImageResource(R.drawable.computer)
-        } else if(place.shootingType.equals("Téléfilm")){
+        } else if(place.shootingType == "Téléfilm"){
             holder.image.setImageResource(R.drawable.tv)
         }
         if(place.favourite){

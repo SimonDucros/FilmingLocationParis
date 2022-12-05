@@ -31,7 +31,7 @@ class DetailActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.a_detail_postalcode).text = location.postalCode
             findViewById<TextView>(R.id.a_detail_producer).text = location.producer
             findViewById<TextView>(R.id.a_detail_type).text = location.shootingType
-            findViewById<TextView>(R.id.a_detail_date).text = location.date.toString()
+            findViewById<TextView>(R.id.a_detail_date).text = location.date.year.toString()
 
             if(location.shootingType.equals("Long métrage")){
                 findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.clap)

@@ -167,7 +167,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:clickable="true"
-        app:backgroundTint="#6200ED"
+        app:backgroundTint="#6200EC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_text_postalcode"
