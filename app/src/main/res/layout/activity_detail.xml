@@ -10,21 +10,25 @@
 
     <TextView
         android:id="@+id/a_detail_movie"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_movie"
-        app:layout_constraintTop_toBottomOf="@+id/a_detail_id" />
+        app:layout_constraintTop_toBottomOf="@+id/a_detail_image" />
 
     <TextView
         android:id="@+id/a_detail_address"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_address"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_type" />
 
@@ -32,17 +36,18 @@
         android:id="@+id/a_detail_text_movie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:text="Movie: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toStartOf="@+id/a_detail_text_id"
-        app:layout_constraintTop_toBottomOf="@+id/a_detail_text_id" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_detail_image" />
 
     <TextView
         android:id="@+id/a_detail_text_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:text="Address: "
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintStart_toStartOf="@+id/a_detail_text_movie"
@@ -50,9 +55,11 @@
 
     <TextView
         android:id="@+id/a_detail_director"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_director"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_movie" />
 
@@ -69,24 +76,27 @@
         android:id="@+id/a_detail_text_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
         android:text="ID: "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/a_detail_id"
+        app:layout_constraintTop_toTopOf="@+id/a_detail_id" />
 
     <TextView
         android:id="@+id/a_detail_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/a_detail_text_id"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/a_detail_producer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_producer"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_date" />
 
@@ -108,9 +118,11 @@
 
     <TextView
         android:id="@+id/a_detail_date"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_date"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_director" />
 
@@ -124,9 +136,11 @@
 
     <TextView
         android:id="@+id/a_detail_type"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_type"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_producer" />
 
@@ -141,9 +155,11 @@
 
     <TextView
         android:id="@+id/a_detail_postalcode"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/a_detail_text_postalcode"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_address" />
 
@@ -158,5 +174,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/a_detail_text_postalcode"
         app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+    <ImageView
+        android:id="@+id/a_detail_image"
+        android:layout_width="0dp"
+        android:layout_height="155dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a_detail_id"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

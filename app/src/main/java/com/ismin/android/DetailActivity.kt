@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,6 +32,16 @@ class DetailActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.a_detail_producer).text = location.producer
             findViewById<TextView>(R.id.a_detail_type).text = location.shootingType
             findViewById<TextView>(R.id.a_detail_date).text = location.date.toString()
+
+            if(location.shootingType.equals("Long métrage")){
+                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.clap)
+            } else if(location.shootingType.equals("Série TV")){
+                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tvshow)
+            } else if(location.shootingType.equals("Série Web")){
+                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.computer)
+            } else if(location.shootingType.equals("Téléfilm")){
+                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tv)
+            }
 
             findViewById<FloatingActionButton>(R.id.a_detail_btn_backarrow).setOnClickListener(this::returnToMain)
         }
