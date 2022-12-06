@@ -20,7 +20,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 const val SERVER_BASE_URL = "https://shootingLocations-gme.cleverapps.io"
 
-
+/**
+ * Root navigation activity
+ */
 class MainActivity : AppCompatActivity() {
 
     private var locations = ListShootingLocations()
@@ -53,22 +55,29 @@ class MainActivity : AppCompatActivity() {
   */
         // for tests
         val shoot2 = ShootingLocation("2019-1719", Date(2019,1,1), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
-        val shoot = ShootingLocation("2019-1718", Date(2012,1,1), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
-        val shoot3 = ShootingLocation("2019-1720", Date(2022,1,1), "Série Web", "Hello","Pourriture","Moi","rue imaginaire","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot = ShootingLocation("2019-1718", Date(2012,1,1), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87200007147879,2.303550000018585),false)
+        val shoot3 = ShootingLocation("2019-1720", Date(2022,1,1), "Série Web", "Hello","Pourriture","Moi","rue imaginaire","75018",doubleArrayOf(48.87000087147879,2.303550627818585),false)
         locations.addShootingLocation(shoot)
         locations.addShootingLocation(shoot2)
         locations.addShootingLocation(shoot3)
         displayListFragment()
     }
 
+    /**
+     * Launch the detail activity displaying the details of a location (executed when a location has been clicked on in the list)
+     * A location is sent to the started activity
+     */
     fun startDetailActivity(id: String, fav: Boolean) {
         val intent = Intent(this, DetailActivity::class.java)
         locations = locations.updateFavourites(locations,id,fav)
-        var shootingLocation = locations.getShootingLocationById(id)
+        val shootingLocation = locations.getShootingLocationById(id)
         intent.putExtra("location", shootingLocation)
         startForResult.launch(intent)
     }
 
+    /**
+     * Starts the main activity while expecting a location from the finished activity (detail activity)
+     */
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
@@ -79,6 +88,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Displays ListFragment in the FrameLayout
+     */
     private fun displayListFragment() {
         val listFragment = ListFragment.newInstance(locations.getAllShootingLocations())
         supportFragmentManager.beginTransaction()
@@ -87,6 +99,9 @@ class MainActivity : AppCompatActivity() {
         locationAdapter = LocationAdapter(locations.getAllShootingLocations(),listFragment)
     }
 
+    /**
+     * Displays AppInfoFragment in the FrameLayout
+     */
     private fun displayAppInfoFragment() {
         val appInfoFragment = AppInfoFragment.newInstance()
         supportFragmentManager.beginTransaction()
@@ -94,6 +109,9 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    /**
+     * Displays MapsFragment in the FrameLayout
+     */
     private fun displayMapFragment() {
         val mapFragment = MapsFragment.newInstance(locations)
         supportFragmentManager.beginTransaction()
@@ -101,12 +119,18 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
+    /**
+     * Inflates the menu
+     */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
 
+    /**
+     * Handle the menu options to navigate between the list, map and app info fragments as well as a refresh option
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_list -> {

@@ -11,9 +11,16 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+/**
+ * Can be displayed in the recycling viewer of the main activity
+ * Map displays the locations via pins
+ */
 class MapsFragment : Fragment() {
     private lateinit var listLocations: ListShootingLocations
 
+    /**
+     * Displays all locations on a map and moves the camera to the last location
+     */
     private val callback = OnMapReadyCallback { googleMap ->
         /**
          * Manipulates the map once available.
@@ -25,25 +32,33 @@ class MapsFragment : Fragment() {
          * user has installed Google Play services and returned to the app.
          */
 
-        // display all locations on the maps
         var geoData = LatLng(-34.0, 151.0)
         for(location in listLocations.getAllShootingLocations()){
             geoData = LatLng(location.geoLocation[0],location.geoLocation[1])
             googleMap.addMarker(MarkerOptions().position(geoData).title(location.title))
         }
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(geoData))
-
     }
 
+    /**
+     * Creation of the view
+     */
     override fun onCreateView(inflater: LayoutInflater,container: ViewGroup?,savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_maps, container, false)
     }
 
+    /**
+     * Filling the created view
+     */
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
         mapFragment?.getMapAsync(callback)
     }
+
+    /**
+     * Companion object retrieving the location list sent by the main activity
+     */
     companion object {
         @JvmStatic
         fun newInstance(locations: ListShootingLocations) =

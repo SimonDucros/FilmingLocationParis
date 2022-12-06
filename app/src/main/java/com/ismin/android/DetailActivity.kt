@@ -3,18 +3,25 @@ package com.ismin.android
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import java.util.*
 
+/**
+ * Extra specifying that a ShootingLocation can be sent back to the main activity
+ */
 const val FAVOURITE_MODIFICATION = "FAVOURITE_MODIFICATION"
 
+/**
+ * Provides complete information on a location
+ */
 class DetailActivity : AppCompatActivity() {
     private lateinit var location : ShootingLocation
 
+    /**
+     * On creation display all information of a location.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -33,15 +40,7 @@ class DetailActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.a_detail_type).text = location.shootingType
             findViewById<TextView>(R.id.a_detail_date).text = location.date.year.toString()
 
-            if(location.shootingType.equals("Long métrage")){
-                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.clap)
-            } else if(location.shootingType.equals("Série TV")){
-                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tvshow)
-            } else if(location.shootingType.equals("Série Web")){
-                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.computer)
-            } else if(location.shootingType.equals("Téléfilm")){
-                findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tv)
-            }
+            displayShootingTypeIcon(location.shootingType)
             displayFavouriteStatus(location.favourite)
 
             findViewById<FloatingActionButton>(R.id.a_detail_btn_backarrow).setOnClickListener(this::returnToMain)
@@ -49,12 +48,33 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Display the icon of a location depending on the shooting type of the movie
+     */
+    private fun displayShootingTypeIcon(shootingType:String){
+        if(shootingType == "Long métrage"){
+            findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.clap)
+        } else if(shootingType == "Série TV"){
+            findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tvshow)
+        } else if(shootingType == "Série Web"){
+            findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.computer)
+        } else if(shootingType == "Téléfilm"){
+            findViewById<ImageView>(R.id.a_detail_image).setImageResource(R.drawable.tv)
+        }
+    }
+
+    /**
+     * Update the variable favourite of a location and display the new status in the app
+     */
     private fun updateFavouriteStatus(location: ShootingLocation): ShootingLocation {
         location.favourite = !location.favourite
         displayFavouriteStatus(location.favourite)
         return location
     }
 
+    /**
+     * Update the display of the favourite status. A full star is displayed if the location is labeled as favourite. An empty star is showed otherwise.
+     */
     private fun displayFavouriteStatus(fav: Boolean){
         if(fav){
             findViewById<ImageView>(R.id.a_detail_favourite_status).setImageResource(R.drawable.ic_baseline_star_24)
@@ -63,9 +83,11 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Finish the activity and return to the main activity
+     * Send the location that has been displayed back to the main to notify it of the changes
+     */
     private fun returnToMain(_v: View) {
-        // we need the location so that the favourite variable can be updated
-
         val intent = Intent()
         intent.putExtra(FAVOURITE_MODIFICATION, location)
         setResult(RESULT_OK, intent)

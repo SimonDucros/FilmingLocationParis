@@ -5,6 +5,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
+/**
+ * Determines how the items in 'row_location.xml' are accessed
+ */
 class LocationViewHolder(rootView: View): ViewHolder(rootView) {
     var movie = rootView.findViewById<TextView>(R.id.r_location_txv_movie)
     var address = rootView.findViewById<TextView>(R.id.r_location_txv_address)

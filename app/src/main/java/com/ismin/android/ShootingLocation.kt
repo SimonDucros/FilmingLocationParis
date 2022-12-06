@@ -2,6 +2,9 @@ package com.ismin.android
 
 import java.util.*
 
+/**
+ * Data structure of a shooting location of the database
+ */
 data class ShootingLocation(val locationId: String,
                             val date: Date,
                             val shootingType: String,
