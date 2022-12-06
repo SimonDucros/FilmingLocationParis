@@ -5,20 +5,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 
-/*import retrofit2.Call
+import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
- */
 
-const val SERVER_BASE_URL = "https://shootingLocations-gme.cleverapps.io"
+const val SERVER_BASE_URL = "http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io"
 
 /**
  * Root navigation activity
@@ -28,18 +28,22 @@ class MainActivity : AppCompatActivity() {
     private var locations = ListShootingLocations()
     private lateinit var locationAdapter: LocationAdapter
 
-    /*
+
     val retrofit = Retrofit.Builder()
         .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(SERVER_BASE_URL)
         .build()
     val shootingLocationService = retrofit.create(ShootingLocationService::class.java)
- */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
- /*       shootingLocationService.getAllBooks()
+        /*
+        TODO get locations from remote
+         */
+
+        shootingLocationService.getAllShootingLocations()
             .enqueue(object : Callback<List<ShootingLocation>> {
                 override fun onResponse(
                     call: Call<List<ShootingLocation>>,
@@ -52,8 +56,8 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
                 }
             })
-  */
-        // for tests
+
+ /*       // for tests in local
         val shoot2 = ShootingLocation("2019-1719", Date(2019,1,1), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
         val shoot = ShootingLocation("2019-1718", Date(2012,1,1), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87200007147879,2.303550000018585),false)
         val shoot3 = ShootingLocation("2019-1720", Date(2022,1,1), "Série Web", "Hello","Pourriture","Moi","rue imaginaire","75018",doubleArrayOf(48.87000087147879,2.303550627818585),false)
@@ -61,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         locations.addShootingLocation(shoot2)
         locations.addShootingLocation(shoot3)
         displayListFragment()
+  */
     }
 
     /**
@@ -82,6 +87,9 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
             locations = locations.updateFavourites(locations,changedLocation.locationId, changedLocation.favourite)
+            /*
+            TODO update favourite on the server
+             */
             locationAdapter.refreshData(locations.getAllShootingLocations())
             locationAdapter.notifyDataSetChanged()
             displayListFragment()
@@ -152,19 +160,4 @@ class MainActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
-
-    /*
-    override fun onBookCreated(shootLocation: ShootingLocation) {
-        shootingLocationService.createBook(shootLocation)
-            .enqueue(object : Callback<ShootingLocation> {
-                override fun onResponse(call: Call<ShootingLocation>,response: Response<ShootingLocation>) {
-                    response.body()?.let{locations.addBook(it)}
-                    displayListFragment()
-                }
-                override fun onFailure(call: Call<ShootingLocation>, t: Throwable) {
-                    Toast.makeText(applicationContext,"Cannot be added to favourites", Toast.LENGTH_SHORT).show()
-                }
-            })
-    }
-     */
 }
