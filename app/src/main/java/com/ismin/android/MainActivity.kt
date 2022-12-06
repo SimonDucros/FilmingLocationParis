@@ -61,8 +61,10 @@ class MainActivity : AppCompatActivity() {
         displayListFragment()
     }
 
-    fun startDetailActivity(shootingLocation: ShootingLocation) {
+    fun startDetailActivity(id: String, fav: Boolean) {
         val intent = Intent(this, DetailActivity::class.java)
+        locations = locations.updateFavourites(locations,id,fav)
+        var shootingLocation = locations.getShootingLocationById(id)
         intent.putExtra("location", shootingLocation)
         startForResult.launch(intent)
     }

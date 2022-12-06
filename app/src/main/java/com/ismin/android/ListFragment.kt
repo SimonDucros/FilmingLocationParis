@@ -37,8 +37,8 @@ class ListFragment : Fragment() {
         return rootView
     }
 
-    fun startDetailActivityFromFragment(shootingLocation: ShootingLocation) {
-        (activity as MainActivity).startDetailActivity(shootingLocation)
+    fun startDetailActivityFromFragment(id: String, fav: Boolean) {
+        (activity as MainActivity).startDetailActivity(id,fav)
     }
 
     companion object {
