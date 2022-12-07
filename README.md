@@ -22,6 +22,9 @@ The app contains the following:
 We used the data that can be found on the following link:
 https://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu
 
+The remote database can be consulted at the following link:
+http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io
+
 ## What this project contains
 
 
