@@ -19,5 +19,5 @@ interface ShootingLocationService {
      */
 
     @PUT("")
-    fun UpdateFavourite(@Body() locationId: String): Call<ShootingLocation>
+    fun updateFavourite(@Body() locationId: String, favourite: Boolean): Call<ShootingLocation>
 }

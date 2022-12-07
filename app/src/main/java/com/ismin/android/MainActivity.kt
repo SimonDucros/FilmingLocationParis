@@ -40,9 +40,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         /*
-        TODO get locations from remote
+        TODO uncomment one of the two following lines in order to test the project
+        Remote version --> remoteDataFetching()
+        Local version --> localTests()
          */
+    //    remoteDataFetching()
+        localTests()
+    }
 
+    /**
+     * Fetch remote data base
+     */
+    fun remoteDataFetching(){
+        /*
+        TODO get locations from remote to work with the app
+         */
         shootingLocationService.getAllShootingLocations()
             .enqueue(object : Callback<List<ShootingLocation>> {
                 override fun onResponse(
@@ -56,8 +68,36 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
                 }
             })
+    }
 
- /*       // for tests in local
+    /**
+     * Update remote data base
+     */
+    fun updateRemoteData(locationId: String, favourite: Boolean){
+        /*
+        TODO update remote locations
+         */
+        /*
+        shootingLocationService.updateFavourite(locationId,favourite)
+            .enqueue(object : Callback<ShootingLocation> {
+                override fun onResponse(
+                    call: Call<List<ShootingLocation>>,
+                    response: Response<List<ShootingLocation>>
+                ) {
+                    response.body()?.forEach { locations.addShootingLocation(it) }
+                    displayListFragment()
+                }
+                override fun onFailure(call: Call<List<ShootingLocation>>, t: Throwable) {
+                    Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
+                }
+            })
+         */
+    }
+
+    /**
+     * Tests using the local version of the project
+     */
+    fun localTests(){
         val shoot2 = ShootingLocation("2019-1719", Date(2019,1,1), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
         val shoot = ShootingLocation("2019-1718", Date(2012,1,1), "Téléfilm", "0 Jours Max","Dieu","Moi","rue imaginaire","75018",doubleArrayOf(48.87200007147879,2.303550000018585),false)
         val shoot3 = ShootingLocation("2019-1720", Date(2022,1,1), "Série Web", "Hello","Pourriture","Moi","rue imaginaire","75018",doubleArrayOf(48.87000087147879,2.303550627818585),false)
@@ -65,7 +105,6 @@ class MainActivity : AppCompatActivity() {
         locations.addShootingLocation(shoot2)
         locations.addShootingLocation(shoot3)
         displayListFragment()
-  */
     }
 
     /**
@@ -87,9 +126,7 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
             locations = locations.updateFavourites(locations,changedLocation.locationId, changedLocation.favourite)
-            /*
-            TODO update favourite on the server
-             */
+            // updateRemoteData(changedLocation.locationId, changedLocation.favourite)
             locationAdapter.refreshData(locations.getAllShootingLocations())
             locationAdapter.notifyDataSetChanged()
             displayListFragment()
