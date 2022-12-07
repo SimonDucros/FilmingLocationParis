@@ -64,13 +64,11 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     response.body()?.forEach { locations.addShootingLocation(it) }
                     displayListFragment()
-                    Log.i("HEEEEEEEERe","is it displayed?")
                 }
                 override fun onFailure(call: Call<List<ShootingLocation>>, t: Throwable) {
                     t.cause
                     t.message
                     Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
-                    Log.i("THeeeeeeeeEEERe","is it displayed?")
                 }
             })
     }
