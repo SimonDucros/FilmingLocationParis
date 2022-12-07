@@ -64,7 +64,7 @@ The activity is associated to the 'activity_detail.xml' file that determines the
 
 ## Note to teacher
 
-The web project works on its own. The same goes for the local version of the android part of the project. However the link between the two does not. To switch between the 'remote' (using the web part of the project) and 'local' (not using the web part of the project and using local data) versions simply checkout the last two updates of the git main branch.
+The web project works on its own. The same goes for the local version of the android part of the project. However the link between the two does not. To switch between the 'remote' (using the web part of the project) and 'local' (not using the web part of the project and using local data) versions simply checkout the two corresponding branches of the project.
 
 Remote version: For a reason that we could not understand, the fetching of the remote database does not work.
 
