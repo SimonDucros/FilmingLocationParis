@@ -6,7 +6,7 @@ Project for Android Development - ISMIN
 
 ## 📝 Goal
 
-In this project we want to be able to access an online database handling a record of shooting places in the city of Paris.
+In this project we want to be able to access an online database handling a record of a list of movies' shooting places in the city of Paris.
 This is the android part of the project.
 
 The app contains the following:
@@ -20,18 +20,12 @@ The app contains the following:
 ## Resources
 
 We used the data that can be found on the following link:
-https://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu
+'https://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu'
 
 The remote database can be consulted at the following link:
-http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io/shootingLocations
+'http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io/shootingLocations'
 
 ## What this project contains
-
-
-This app contains the following files:
-- ListShootingLocations (not used when web part of the project is used)
-
-- ShootingLocation
 
 ### ShootingLocation
 
@@ -70,3 +64,4 @@ The activity is associated to the 'activity_detail.xml' file that determines the
 
 ## Note to teacher
 
+The web project works on its own. The same goes for the local version of the android part of the project. However the link between the two does not. To switch between the 'remote' (using the web part of the project) and 'local' (not using the web part of the project and using local data) versions simply checkout the last two updates of the git main branch.
