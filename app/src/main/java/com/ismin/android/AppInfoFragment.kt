@@ -20,7 +20,7 @@ private const val EXPLANATIONS = "This application was developed for a the class
 /**
  * Constant text displayed in the TextView 'f_app_info_licence' in 'fragment_app_info.xml'
  */
-private const val LICENCE = "We are using the following libraries: \n- retrofit - OKHttp\n- Volley\n- Gson\nLicence:\n- "
+private const val LICENCE = "We are using the following libraries: \n- retrofit - OKHttp\n- Volley\n- Gson"
 
 /**
  * Can be displayed in the recycling viewer of the main activity

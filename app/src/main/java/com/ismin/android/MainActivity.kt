@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
         Remote version --> remoteDataFetching()
         Local version --> localTests()
          */
-        remoteDataFetching()
-    //    localTests()
+     //   remoteDataFetching()
+        localTests()
     }
 
     /**
@@ -101,13 +101,15 @@ class MainActivity : AppCompatActivity() {
      * Tests using the local version of the project
      */
     fun localTests(){
- /*       val shoot2 = ShootingLocation("2019-1719", Date(2019,1,1), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
-        val shoot = ShootingLocation("2019-1712", Date(2019,1,1), "Long métrage", "CIGARE AU MIEL","Madame KAMIR AÏNOUZ","ELIPH PRODUCTIONS","7 rue de berri, 75008 paris","75008",doubleArrayOf(48.87200007147879,2.303550000018585),false)
-        val shoot3 = ShootingLocation("2016-605", Date(2016,1,1), "Série TV", "LIANG SHENG","LIU CHUN-CHIEN","KANZAMAN FRANCE","RUE  DU BEARN","75003",doubleArrayOf(48.87000087147879,2.303550627818585),false)
-        val shoot4 = ShootingLocation("2019-43", Date(2019,1,1), "Téléfilm", "Des rêves au-dessus de leur tête","Arnaud Sélignac","SON ET LUMIERE","20 esplanade nathalie sarraute, 75018 paris","75018",doubleArrayOf(48.87000087147879,2.303550627818585),false)
-        val shoot5 = ShootingLocation("2019-536", Date(2019,1,1), "Série TV", "The Eddy","Damien Chazelle","atlantique productions","place de la porte d'auteuil, 75016 paris","75016",doubleArrayOf(48.87000087147879,2.303550627818585),false)
-        val shoot6 = ShootingLocation("2017-363", Date(2017,1,1), "Série Web", "MIAMI VINE","Clément Pillet et Julien Arnardi","CITIZEN PRODUCTIONS","rue du rocher, 75008 paris","75008",doubleArrayOf(48.87000087147879,2.303550627818585),false)
-        val shoot7 = ShootingLocation("2017-360", Date(2017,1,1), "Série Web", "MIAMI VINE","Clément Pillet et Julien Arnardi","CITIZEN PRODUCTIONS","rue de vienne, 75008 paris","75008",doubleArrayOf(48.87000087147879,2.303550627818585),false)
+        val shoot2 = ShootingLocation("2019-1719", Date(2019,1,1), "Long métrage", "30 Jours Max","Tarek BOUDALI","AXEL FILMS PRODUCTION","rue rené clair, 75018 paris","75018",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot = ShootingLocation("2019-1712", Date(2019,1,1), "Long métrage", "CIGARE AU MIEL","Madame KAMIR AÏNOUZ","ELIPH PRODUCTIONS","7 rue de berri, 75008 paris","75008",doubleArrayOf(48.87219487147879,2.303550627818585),false)
+        val shoot3 = ShootingLocation("2016-644", Date(2016,1,1), "Long métrage", "CARBONE","OLIVIER MARCHAL","LES FILMS MANUEL MUNZ","PLACE VENDOME","75001",doubleArrayOf(48.86811300034083,2.329704999637536),false)
+        val shoot8 = ShootingLocation("2016-620", Date(2016,1,1), "Long métrage", "DIANE A LES EPAULES","FABIEN GORGEART","PETIT FILM","3  IMPASSE  BONNE NOUVELLE","75010",doubleArrayOf(48.86811300034083,2.329704999637536),false)
+        // the following locations do not have accurate geo localisation
+        val shoot4 = ShootingLocation("2019-43", Date(2019,1,1), "Téléfilm", "Des rêves au-dessus de leur tête","Arnaud Sélignac","SON ET LUMIERE","20 esplanade nathalie sarraute, 75018 paris","75018",doubleArrayOf(48.80000087147879,2.012480627818585),false)
+        val shoot5 = ShootingLocation("2019-536", Date(2019,1,1), "Série TV", "The Eddy","Damien Chazelle","atlantique productions","place de la porte d'auteuil, 75016 paris","75016",doubleArrayOf(48.84560087999879,2.303550627818585),false)
+        val shoot6 = ShootingLocation("2017-363", Date(2017,1,1), "Série Web", "MIAMI VINE","Clément Pillet et Julien Arnardi","CITIZEN PRODUCTIONS","rue du rocher, 75008 paris","75008",doubleArrayOf(48.84000087147879,2.303550627818585),false)
+        val shoot7 = ShootingLocation("2017-360", Date(2017,1,1), "Série Web", "MIAMI VINE","Clément Pillet et Julien Arnardi","CITIZEN PRODUCTIONS","rue de vienne, 75008 paris","75008",doubleArrayOf(48.87000087147879,2.203550627818585),false)
         locations.addShootingLocation(shoot)
         locations.addShootingLocation(shoot2)
         locations.addShootingLocation(shoot3)
@@ -115,8 +117,8 @@ class MainActivity : AppCompatActivity() {
         locations.addShootingLocation(shoot5)
         locations.addShootingLocation(shoot6)
         locations.addShootingLocation(shoot7)
+        locations.addShootingLocation(shoot8)
 
-        */
         displayListFragment()
     }
 
