@@ -5,6 +5,26 @@ import java.util.*
 /**
  * Data structure of a shooting location of the database
  */
+data class ShootingLocation(
+    val coord_y: Float,
+    val shootingType: String,
+    val producer: String,
+    val date_fin: Date,
+    val geoLocation: DoubleArray,
+    val title: String,
+    val postalCode: String,
+    val geo_shape: Objects,
+    val locationId: String,
+    val director: String,
+    val address: String,
+    val date_debut: Date,
+    val date: Date,
+    val coord_x: Float,
+    var favourite: Boolean
+): java.io.Serializable
+
+
+/*
 data class ShootingLocation(val locationId: String,
                             val date: Date,
                             val shootingType: String,
@@ -17,21 +37,4 @@ data class ShootingLocation(val locationId: String,
                             var favourite: Boolean
                             ): java.io.Serializable
 
-/*
-data class ShootingLocation(val id_lieu: String,
-                            val annee_tournage: Date,
-                            val type_tournage: String,
-                            val nom_tournage: String,
-                            val nom_realisateur: String,
-                            val nom_producteur: String,
-                            val adresse_lieu: String,
-                            val ardt_lieu: String,
-                            val date_debut: Date,
-                            val date_fin: Date,
-                            val coord_x: Float,
-                            val coord_y: Float,
-                            val geo_shape: Objects,
-                            val geo_point_2d: DoubleArray,
-                            var favourite: Boolean
-                            ): java.io.Serializable
- */
+*/

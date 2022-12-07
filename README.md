@@ -23,7 +23,7 @@ We used the data that can be found on the following link:
 https://opendata.paris.fr/explore/dataset/lieux-de-tournage-a-paris/information/?disjunctive.type_tournage&disjunctive.nom_tournage&disjunctive.nom_realisateur&disjunctive.nom_producteur&disjunctive.ardt_lieu
 
 The remote database can be consulted at the following link:
-http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io
+http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io/shootingLocations
 
 ## What this project contains
 
@@ -67,4 +67,6 @@ The fragment is associated to the 'fragment_app_info.xml' file that determines t
 This activity implements the provider for complete information on a clicked location (in the list).
 The activity is associated to the 'activity_detail.xml' file that determines the layout of the frame. It contains two clickable objects: the star in the top left corner and the back arrow on the bottom.  The star represents the favourite status of the displayed location. A filled star means it is among the favourites, an empty one means the opposite. Clicking on the star will change the locations status. The back arrow allows the used to return to the the displaying of the list of locations.
 
+
+## Note to teacher
 

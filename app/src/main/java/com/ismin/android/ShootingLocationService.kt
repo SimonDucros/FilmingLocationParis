@@ -4,7 +4,7 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ShootingLocationService {
-    @GET("shootingLocations")
+    @GET("/shootingLocations")
     fun getAllShootingLocations(): Call<List<ShootingLocation>>
 
     @GET("shootingLocations")
