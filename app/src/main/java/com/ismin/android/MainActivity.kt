@@ -18,7 +18,6 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
 const val SERVER_BASE_URL = "http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io"
 
 /**
