@@ -30,9 +30,7 @@ class LocationAdapter(private var locations: List<ShootingLocation>, val homeFra
      */
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
         place = locations[position]
-        if(place.id_lieu==null){
-            Log.i("HEEEEEREEE",holder.id)
-        } else {
+        if(place.id_lieu!=null){
             holder.movie.text = place.nom_tournage
             holder.director.text = place.nom_realisateur
             holder.date.text = place.annee_tournage?.year.toString()

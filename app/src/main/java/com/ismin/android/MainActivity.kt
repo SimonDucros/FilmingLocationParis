@@ -3,6 +3,7 @@ package com.ismin.android
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -75,24 +76,28 @@ class MainActivity : AppCompatActivity() {
      */
     fun updateRemoteData(locationId: String, favourite: Boolean){
         /*
-        TODO update remote locations
+        TODO test update remote locations
          */
-/*
+
         shootingLocationService.updateFavourite(locationId,favourite)
             .enqueue(object : Callback<ShootingLocation> {
                 override fun onResponse(
                     call: Call<ShootingLocation>,
                     response: Response<ShootingLocation>
                 ) {
-                    response.body()?.forEach { locations.addShootingLocation(it) }
+                    var place = response.body()
+                    if (place != null) {
+                        locations.updateFavourites(locations,place.id_lieu, place.favourite)
+                    }
                     displayListFragment()
+                    Log.i("Update Favourites","response is null")
                     }
                 override fun onFailure(call: Call<ShootingLocation>, t: Throwable) {
-                    Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext,"Cannot update favourites", Toast.LENGTH_SHORT).show()
                 }
             })
 
- */
+
 
     }
 
@@ -138,7 +143,7 @@ class MainActivity : AppCompatActivity() {
         if (result.resultCode == Activity.RESULT_OK) {
             val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
             locations = locations.updateFavourites(locations,changedLocation.id_lieu, changedLocation.favourite)
-            // updateRemoteData(changedLocation.locationId, changedLocation.favourite)
+            updateRemoteData(changedLocation.id_lieu, changedLocation.favourite)
             locationAdapter.refreshData(locations.getAllShootingLocations())
             locationAdapter.notifyDataSetChanged()
             displayListFragment()
