@@ -1,5 +1,6 @@
 package com.ismin.android
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -29,15 +30,19 @@ class LocationAdapter(private var locations: List<ShootingLocation>, val homeFra
      */
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
         place = locations[position]
-        holder.movie.text = place.title
-        holder.director.text = place.director
-        holder.date.text = place.date.year.toString()
-        holder.address.text = place.address
-        holder.id = place.locationId
-        holder.fav = place.favourite
+        if(place.id_lieu==null){
+            Log.i("HEEEEEREEE",holder.id)
+        } else {
+            holder.movie.text = place.nom_tournage
+            holder.director.text = place.nom_realisateur
+            holder.date.text = place.annee_tournage?.year.toString()
+            holder.address.text = place.adresse_lieu
+            holder.id = place.id_lieu
+            holder.fav = place.favourite
 
-        displayShootingTypeIcon(holder,place.shootingType)
-        displayFavouriteStatus(holder)
+            displayShootingTypeIcon(holder, place.type_tournage)
+            displayFavouriteStatus(holder)
+        }
     }
 
     /**

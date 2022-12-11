@@ -7,34 +7,18 @@ import java.util.*
  */
 data class ShootingLocation(
     val coord_y: Float,
-    val shootingType: String,
-    val producer: String,
+    val type_tournage: String,
+    val nom_producteur: String,
     val date_fin: Date,
-    val geoLocation: DoubleArray,
-    val title: String,
-    val postalCode: String,
+    val geo_point_2d: DoubleArray,
+    val nom_tournage: String,
+    val ardt_lieu: String,
     val geo_shape: Objects,
-    val locationId: String,
-    val director: String,
-    val address: String,
+    val id_lieu: String,
+    val nom_realisateur: String,
+    val adresse_lieu: String,
     val date_debut: Date,
-    val date: Date,
+    val annee_tournage: Date,
     val coord_x: Float,
     var favourite: Boolean
 ): java.io.Serializable
-
-
-/*
-data class ShootingLocation(val locationId: String,
-                            val date: Date,
-                            val shootingType: String,
-                            val title: String,
-                            val director: String,
-                            val producer: String,
-                            val address: String,
-                            val postalCode: String,
-                            val geoLocation: DoubleArray,
-                            var favourite: Boolean
-                            ): java.io.Serializable
-
-*/

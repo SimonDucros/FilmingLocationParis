@@ -3,14 +3,12 @@ package com.ismin.android
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
 
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,7 +16,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val SERVER_BASE_URL = "http://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io"
+const val SERVER_BASE_URL = "https://app-a420d8b0-91fa-4e22-aa10-d7b502ac5499.cleverapps.io"
 
 /**
  * Root navigation activity
@@ -79,21 +77,23 @@ class MainActivity : AppCompatActivity() {
         /*
         TODO update remote locations
          */
-        /*
+/*
         shootingLocationService.updateFavourite(locationId,favourite)
             .enqueue(object : Callback<ShootingLocation> {
                 override fun onResponse(
-                    call: Call<List<ShootingLocation>>,
-                    response: Response<List<ShootingLocation>>
+                    call: Call<ShootingLocation>,
+                    response: Response<ShootingLocation>
                 ) {
                     response.body()?.forEach { locations.addShootingLocation(it) }
                     displayListFragment()
-                }
-                override fun onFailure(call: Call<List<ShootingLocation>>, t: Throwable) {
+                    }
+                override fun onFailure(call: Call<ShootingLocation>, t: Throwable) {
                     Toast.makeText(applicationContext,"Cannot display locations", Toast.LENGTH_SHORT).show()
                 }
             })
-         */
+
+ */
+
     }
 
     /**
@@ -137,7 +137,7 @@ class MainActivity : AppCompatActivity() {
     private val startForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
         if (result.resultCode == Activity.RESULT_OK) {
             val changedLocation = result.data?.getSerializableExtra(FAVOURITE_MODIFICATION) as ShootingLocation
-            locations = locations.updateFavourites(locations,changedLocation.locationId, changedLocation.favourite)
+            locations = locations.updateFavourites(locations,changedLocation.id_lieu, changedLocation.favourite)
             // updateRemoteData(changedLocation.locationId, changedLocation.favourite)
             locationAdapter.refreshData(locations.getAllShootingLocations())
             locationAdapter.notifyDataSetChanged()

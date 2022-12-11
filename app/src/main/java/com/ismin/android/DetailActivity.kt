@@ -31,16 +31,16 @@ class DetailActivity : AppCompatActivity() {
             location = extras.getSerializable("location") as ShootingLocation
 
             // display location's details
-            findViewById<TextView>(R.id.a_detail_id).text = location.locationId
-            findViewById<TextView>(R.id.a_detail_director).text = location.director
-            findViewById<TextView>(R.id.a_detail_movie).text = location.title
-            findViewById<TextView>(R.id.a_detail_address).text = location.address
-            findViewById<TextView>(R.id.a_detail_postalcode).text = location.postalCode
-            findViewById<TextView>(R.id.a_detail_producer).text = location.producer
-            findViewById<TextView>(R.id.a_detail_type).text = location.shootingType
-            findViewById<TextView>(R.id.a_detail_date).text = location.date.year.toString()
+            findViewById<TextView>(R.id.a_detail_id).text = location.id_lieu
+            findViewById<TextView>(R.id.a_detail_director).text = location.nom_realisateur
+            findViewById<TextView>(R.id.a_detail_movie).text = location.nom_tournage
+            findViewById<TextView>(R.id.a_detail_address).text = location.adresse_lieu
+            findViewById<TextView>(R.id.a_detail_postalcode).text = location.ardt_lieu
+            findViewById<TextView>(R.id.a_detail_producer).text = location.nom_producteur
+            findViewById<TextView>(R.id.a_detail_type).text = location.type_tournage
+            findViewById<TextView>(R.id.a_detail_date).text = location.annee_tournage.year.toString()
 
-            displayShootingTypeIcon(location.shootingType)
+            displayShootingTypeIcon(location.type_tournage)
             displayFavouriteStatus(location.favourite)
 
             findViewById<FloatingActionButton>(R.id.a_detail_btn_backarrow).setOnClickListener(this::returnToMain)

@@ -7,7 +7,7 @@ class ListShootingLocations{
     private val locations: HashMap<String, ShootingLocation> = HashMap();
 
     fun addShootingLocation(shootLocation: ShootingLocation) {
-        locations[shootLocation.locationId] = shootLocation;
+        locations[shootLocation.id_lieu] = shootLocation;
     }
 
     fun getShootingLocationById(id: String): ShootingLocation {
@@ -15,7 +15,7 @@ class ListShootingLocations{
     }
 
     fun getAllShootingLocations(): ArrayList<ShootingLocation> {
-        return ArrayList(locations.values.sortedBy { it.title });
+        return ArrayList(locations.values.sortedBy { it.nom_tournage });
     }
 
     fun getTotalNumberOfShootingLocations(): Int {

@@ -16,5 +16,5 @@ class LocationViewHolder(rootView: View): ViewHolder(rootView) {
     var image = rootView.findViewById<ImageView>(R.id.r_location_image)
     var star = rootView.findViewById<ImageView>(R.id.r_location_txv_favourite_status)
     var fav = false
-    var id = ""
+    var id = " "
 }
